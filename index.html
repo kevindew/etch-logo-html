@@ -1,0 +1,391 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Etch</title>
+    <meta name="viewport" content="width=device-width" />
+    <script src="js/libs/modernizr-2.5.3.min.js"></script>
+    <style>
+        /*
+        This works so much better in Firefox than Webkit!
+        */
+
+        body {
+            margin-top: 2em;
+        }
+
+        .container {
+            margin: auto;
+            width: 50%;
+        }
+
+        .outer {
+              position:relative; 
+              width: 100%;
+              display:inline-block;
+        }
+
+        .fill {
+            margin-top: 100%;
+        }
+
+        .logo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .logo img {
+            width: 100%;
+            
+        }
+
+        .html-logo {
+            display: block;
+            position: absolute;
+            background-color: #F0665E;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            overflow: hidden;
+        }
+
+        .html-logo .letters {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .html-logo.spin .letters {
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+            -webkit-transition: all 2s ease;
+            -moz-transition: all 2s ease;
+            -ms-transition: all 2s ease;
+            -o-transition: all 2s ease;
+            transition: all 2s ease;
+        }
+
+        .html-logo .letter-part {
+            position: absolute;
+            font-size: 0;
+            opacity: 1;
+            background-color: transparent;
+            -webkit-transition: top 1s linear, bottom 1s linear, right 1s linear, left 1s linear, opacity .5s linear;
+            -moz-transition: top 1s linear, bottom 1s linear, right 1s linear, left 1s linear, opacity .5s linear;
+            -ms-transition: top 1s linear, bottom 1s linear, right 1s linear, left 1s linear, opacity .5s linear;
+            -o-transition: top 1s linear, bottom 1s linear, right 1s linear, left 1s linear, opacity .5s linear;
+            transition: top 1s linear, bottom 1s linear, right 1s linear, left 1s linear, opacity .5s linear;            
+        }
+
+        .html-logo .letter-component {
+            position: absolute;
+            background-color: white;
+        }
+
+        .html-logo .e-top {
+            height: 4.3%;
+            left: 19.35%;
+            top: 37.5%;
+            width: 16.8%;
+        }
+
+        .html-logo .e-middle {
+            height: 4.4%;
+            left: 19.35%;
+            top: 46.7%;
+            width: 12.4%;
+        }
+
+        .html-logo .e-bottom {
+            height: 4.3%;
+            left: 19.35%;
+            top: 58.4%;
+            width: 16.8%;
+        }
+
+        .html-logo .e-side {
+            bottom: 37.5%;
+            height: 25%;
+            left: 19.35%;
+            width: 4.6%;
+        }
+
+        .html-logo .t-flag {
+            background: -webkit-linear-gradient(45deg, white 50%, transparent 0px);
+            background: -moz-linear-gradient(45deg, white 50%, transparent 0px);
+            background: linear-gradient(45deg, white 50%, transparent 0px);
+            height: 9.3%;
+            left: 38.5%;
+            top: 37.5%;
+            width: 9.7%;
+        }
+  
+        .html-logo .t-body {
+            background-color: transparent;
+            height: 16.2%;
+            left: 38.5%;
+            bottom: 37.3%;
+            width: 7.2%;            
+        }
+
+        .html-logo .t-bottom {
+            height: 28%;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            
+        }
+
+        .html-logo .t-side {
+            height: 100%;
+            left: 0;
+            top: 0;
+            width: 64%;
+        }
+
+        .html-logo .c {
+            height: 16.7%;
+            left: 47.55%;
+            bottom: 37%;
+            width: 16.7%;
+            background-color: transparent;            
+        }                
+
+        .html-logo .c-letter {
+            height: 100%;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            border-radius: 50%;
+            background: -webkit-linear-gradient(45deg, white 50%, transparent 0px);
+            background: -moz-linear-gradient(45deg, white 50%, transparent 0px);
+            background: -ms-linear-gradient(45deg, white 50%, transparent 0px);
+            background: -o-linear-gradient(45deg, white 50%, transparent 0px);
+            background: linear-gradient(45deg, white 50%, transparent 0px);
+        }
+
+        .html-logo .c-inside {
+            height: 48%;
+            left: 27%;
+            bottom: 27%;
+            width: 48%;
+            border-radius: 50%;
+            background: -webkit-linear-gradient(45deg, #F0665E 50%, transparent 0px);
+            background: -moz-linear-gradient(45deg, #F0665E 50%, transparent 0px);
+            background: -ms-linear-gradient(45deg, #F0665E 50%, transparent 0px);
+            background: -o-linear-gradient(45deg, #F0665E 50%, transparent 0px);            
+            background: linear-gradient(45deg, #F0665E 50%, transparent 0px);
+        }        
+
+        .html-logo .h-left {
+            left: 63.9%;
+            top: 37.5%;
+            width: 4.6%;            
+            height: 30.2%;
+            background-color: transparent;
+        }
+
+        .html-logo .h-left-side {
+            height: 83.5%;
+            left: 0;
+            top: 0;
+            width: 100%;
+        }
+
+        .html-logo .h-bottom {
+            background: -webkit-linear-gradient(225deg, white 50%, transparent 0px);
+            background: -moz-linear-gradient(225deg, white 50%, transparent 0px);
+            background: -ms-linear-gradient(225deg, white 50%, transparent 0px);
+            background: -o-linear-gradient(225deg, white 50%, transparent 0px);            
+            background: linear-gradient(225deg, white 50%, transparent 0px);
+            top: 83.5%;
+            height: 16.5%;
+            left: 0;
+            width: 100%;
+        }
+
+        .html-logo .h-right {
+            height: 16.4%;
+            right: 19.4%;
+            top: 46.5%;
+            width: 16.7%;
+            background-color: transparent;
+        }
+
+        .html-logo .h-curve {
+            height: 100%;
+            right: 0;
+            top: 0;
+            width: 100%;
+            border-radius: 50%;
+            background: -webkit-linear-gradient(270deg, white 50%, transparent 0px);
+            background: -moz-linear-gradient(180deg, white 50%, transparent 0px);
+            background: -ms-linear-gradient(180deg, white 50%, transparent 0px);
+            background: -o-linear-gradient(180deg, white 50%, transparent 0px);
+            background: linear-gradient(180deg, white 50%, transparent 0px);            
+        }
+
+        .html-logo .h-curve-inside {
+            height: 47%;
+            left: 28%;
+            bottom: 25.5%;
+            width: 45%;
+            border-radius: 50%;
+            background: -webkit-linear-gradient(270deg, #F0665E 50%, transparent 0px);
+            background: -moz-linear-gradient(180deg, #F0665E 50%, transparent 0px);
+            background: -ms-linear-gradient(180deg, #F0665E 50%, transparent 0px);            
+            background: -o-linear-gradient(180deg, #F0665E 50%, transparent 0px);            
+            background: linear-gradient(180deg, #F0665E 50%, transparent 0px);
+        }
+
+        .html-logo .h-right-side {
+            height: 52.5%;
+            right: 0;
+            top: 47%;
+            width: 27%;
+        }    
+
+/*        .html-logo .h-curve2 {
+            height: 16.7%;
+            right: 19.4%;
+            top: 46.5%;
+            width: 16.7%;
+            border-radius: 50%;
+            background: -webkit-linear-gradient(270deg, blue 50%, transparent 0px);
+            background: -moz-linear-gradient(270deg, blue 50%, transparent 0px);
+            background: linear-gradient(270deg, blue 50%, transparent 0px);
+            opacity: 0.2;
+            display:none;
+        }
+
+        .html-logo .h-curve-inside2 {
+            height: 7.7%;
+            right: 23.8%;
+            top: 51%;
+            width: 7.7%;
+            border-radius: 50%;
+            background: -webkit-linear-gradient(270deg, green 50%, transparent 0px);
+            background: -moz-linear-gradient(270deg, green 50%, transparent 0px);
+            background: linear-gradient(270deg, green 50%, transparent 0px);
+            opacity: 0.2;
+            display:none;
+        }
+
+        .html-logo .h-right-side2 {
+            height: 8.9%;
+            right: 19.4%;
+            top: 54%;
+            width: 4.5%;
+            background-color: yellow;
+            opacity: 0.2;
+            display:none;
+        }      */
+
+        .js .spread-out .letter-part {
+            opacity: 0;
+        }
+
+        .js .spread-out .e-top {
+            left: -16.8%;
+        }
+
+        .js .spread-out .e-middle {
+            left: -12.4%;
+        }        
+
+        .js .spread-out .e-bottom {
+            left: -16.8%;
+        }
+
+        .js .spread-out .e-side {
+            bottom: -25%;
+        }
+
+        .js .spread-out .t-flag {
+            left: -9.7%;
+        }
+
+        .js .spread-out .t-body {
+            bottom: -16.2%;
+        }           
+
+        .js .spread-out .c {
+            bottom: -16.7%;
+        }
+
+
+        .js .spread-out .h-left {
+            top: -30.2%;
+            left: -4.6%;
+        }
+
+        .js .spread-out .h-right {
+            right: -16.7%;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="outer">
+            <div class="fill"></div>
+            <div class="logo">
+
+                <!-- <img src="img/content/etch-logo.png" alt="Etch Logo" /> -->
+                <span class="html-logo spread-out">
+                    <span class="letters">
+                        <span class="e-top letter-component letter-part"></span>
+                        <span class="e-middle letter-component letter-part"></span>
+                        <span class="e-bottom letter-component letter-part"></span>
+                        <span class="e-side letter-component letter-part"></span>
+                        <span class="t-flag letter-component letter-part"></span>
+                        <span class="t-body letter-part">
+                            <span class="t-side letter-component"></span>
+                            <span class="t-bottom letter-component"></span>
+                        </span>
+                        <span class="c letter-part">
+                          <span class="c-letter letter-component"></span>
+                          <span class="c-inside letter-component"></span>
+                        </span>
+                        <span class="h-left letter-part">
+                            <span class="h-left-side letter-component"></span>
+                            <span class="h-bottom letter-component"></span>
+                        </span>
+                        <span class="h-right letter-part">
+                            <span class="h-curve letter-component"></span>
+                            <span class="h-curve-inside letter-component"></span>
+                            <span class="h-right-side letter-component"></span>
+                        </span> 
+                    </span>
+                </span>        
+            </div>
+        </div>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $(".html-logo").removeClass("spread-out").on("click", function() {
+                $(this).toggleClass("spread-out");
+            });
+
+        });
+    </script>
+</body>
+</html>
